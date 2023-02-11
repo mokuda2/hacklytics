@@ -3,7 +3,7 @@
 FinCast enables financial forecasting of stock prices and cryptocurrencies. For this project we have used Stock Market Data and Cryptocurrency historical data from yahoo Finance .
 
 
-# Requirment
+# Requirement
 
 We suggest to set up a virtual environment in the hacklytics folder by doing the following:
 

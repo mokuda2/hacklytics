@@ -19,12 +19,12 @@ source venv/bin/activate
 
 To run the application you will need: 
 
-`streamlit` that can be installed using `pip install streamlit`
-`pandas_datareader` that can be installed using `pip install pandas_datareader`
-`statsmodels'` that can be installed using `pip install statsmodels`
-`sklearn` that can be installed using `pip install scikit-learn`
-`matplotlib` that can be installed using `pip install matplotlib`
-`yfinance` that can be installed using `pip install yfinance`
+* `streamlit` that can be installed using `pip install streamlit`
+* `pandas_datareader` that can be installed using `pip install pandas_datareader`
+* `statsmodels'` that can be installed using `pip install statsmodels`
+* `sklearn` that can be installed using `pip install scikit-learn`
+* `matplotlib` that can be installed using `pip install matplotlib`
+* `yfinance` that can be installed using `pip install yfinance`
 
 when you have installed all the required libraries, simply run 
 

@@ -1,6 +1,7 @@
 import streamlit as st
 from arima_file import *
 from lstm_file import *
+from contact_us import *
 from PIL import Image
 from datetime import datetime
 from streamlit_option_menu import option_menu
@@ -279,5 +280,5 @@ if choose == "LSTM Forecast":
 
 if choose == "Contact":
     st.title("FinCast's Contact Form")
-
+    contact_form()
     st.write('')

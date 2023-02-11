@@ -31,7 +31,7 @@ else:
 
 df = get_data(ticker, startDate, endDate, interval)
 
-
+st.write('Make sure you click on the button below to make predictions later on!')
 if st.button("See the stock price!"):
     plot_stock(df, ticker, between_tick=between_tick)
     image = Image.open('graphs/stock.png')

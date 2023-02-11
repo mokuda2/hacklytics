@@ -4,6 +4,7 @@ from lstm_file import *
 from contact_us import *
 from PIL import Image
 from datetime import datetime
+from home import *
 from streamlit_option_menu import option_menu
 from datetime import timedelta
 import streamlit.components.v1 as html
@@ -22,6 +23,7 @@ with st.sidebar:
 
 if choose == "Home": 
     st.title("Welcome to FinCast's Forecasting Platform")
+    home_info()
 
     st.write('')
 

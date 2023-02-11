@@ -1,6 +1,6 @@
 # FinCast
 
-FinCast enables financial forecasting of stock prices and cryptocurrencies. For this project we have used Stock Market Data and Cryptocurrency historical data from yahoo Finance .
+FinCast enables financial forecasting of stock prices and cryptocurrencies. For this project, we have used stock market data and cryptocurrency historical data from Yahoo Finance.
 
 
 # Requirement
@@ -11,13 +11,13 @@ We suggest to set up a virtual environment in the hacklytics folder by doing the
 virtualenv --python python3 venv
 ```
 
-To activate it simply run
+To activate it, simply run
 
 ```
 source venv/bin/activate
 ```
 
-To run the application you will need: 
+To run the application, you will need: 
 
 * `streamlit` that can be installed using `pip install streamlit`
 * `pandas_datareader` that can be installed using `pip install pandas_datareader`
@@ -26,7 +26,7 @@ To run the application you will need:
 * `matplotlib` that can be installed using `pip install matplotlib`
 * `yfinance` that can be installed using `pip install yfinance`
 
-when you have installed all the required libraries, simply run 
+When you have installed all the required libraries, simply run 
 
 ```
 streamlink run web_interface.py
@@ -34,7 +34,7 @@ streamlink run web_interface.py
 
 # Data
 
-To load the data we have the function: 
+To load the data, we have the function: 
 
 ```
 import yfinance as yf
@@ -46,16 +46,16 @@ def get_data(stocks, start, end):
 
 # LSTM Network Model
 
-The machine learning model to predict stock prices  can be found in the notebook in 
+The machine learning model to predict stock prices can be found in the notebook below: 
 
 ```
 ./Notebook/FinCast.ipynb
 ```
 
-The machine learning model to predict cryptocurrency prices  can be found in the notebook in 
+The machine learning model to predict cryptocurrency prices can be found in the notebook below: 
 
 ```
 ./Notebook/CryptoFinCast.ipynb
 ```
 
-We have used Long Short Term Memory Networks to work on this project.
+We have used long short-term memory networks to work on this project.

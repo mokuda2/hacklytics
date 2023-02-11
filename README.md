@@ -1,6 +1,6 @@
 # FinCast
 
-FinCast enable financial forecasting of stock prices and cryptocurrencies. For this project we have used real-time Stock Market Data and Cryptocurrency historical data from yahoo Finance .
+FinCast enables financial forecasting of stock prices and cryptocurrencies. For this project we have used Stock Market Data and Cryptocurrency historical data from yahoo Finance .
 
 
 # Requirment
@@ -31,6 +31,7 @@ when you have installed all the required libraries, simply run
 ```
 streamlink run web_interface.py
 ```
+
 # Data
 
 To load the data we have the function: 
@@ -45,8 +46,16 @@ def get_data(stocks, start, end):
 
 # LSTM Network Model
 
-The machine learning model code can be found in the notebook in 
+The machine learning model to predict stock prices  can be found in the notebook in 
 
 ```
 ./Notebook/FinCast.ipynb
 ```
+
+The machine learning model to predict cryptocurrency prices  can be found in the notebook in 
+
+```
+./Notebook/CryptoFinCast.ipynb
+```
+
+We have used Long Short Term Memory Networks to work on this project.

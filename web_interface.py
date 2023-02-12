@@ -8,10 +8,11 @@ from home import *
 from streamlit_option_menu import option_menu
 from datetime import timedelta
 import streamlit.components.v1 as html
+import base64
 
 with st.sidebar:
-    choose = option_menu("FinCast", ["Home","ARIMA Forecast", "LSTM Forecast", "Gradient Boosting Forecast", "Contact"],
-                         icons=['house', 'bar-chart-line-fill', 'bar-chart-line', 'bar-chart-steps','person lines fill'],
+    choose = option_menu("FinCast", ["Home","ARIMA Forecast", "LSTM Forecast", "XGBoost Forecast", "Order Book Forecast",  "Contact"],
+                         icons=['house', 'bar-chart-line-fill', 'bar-chart-line','bar-chart-steps', 'bar-chart-line-fill','person lines fill'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
         "container": {"padding": "5!important", "background-color": "#fafafa"},
@@ -279,9 +280,8 @@ if choose == "LSTM Forecast":
         st.write(f'Predicting next day ({next_day}) {ticker} price: {next_day_pred[0][0]} USD')
 
 
-if choose == "Gradient Boosting Forecast":
+if choose == "XGBoost Forecast":
     st.title("Welcome to FinCast's Gradient Boosting Model")
-
     st.write('')
 
     new_title = '<p style="font-family:cursive; color:blue; font-size: 30px;">First, lets select a dataset.</p>'
@@ -339,7 +339,30 @@ if choose == "Gradient Boosting Forecast":
     st.write('')
 
 
-    ### Fitting an LSTM model
+    ### Fitting an XGBoost model
+
+if choose == "Order Book Forecast":
+    st.title("Welcome to FinCast's Order Book Forecast Section")
+
+    file_ = open("graphs\Video_230212082114.gif", "rb")
+    contents = file_.read()
+    data_url = base64.b64encode(contents).decode("utf-8")
+    file_.close()
+
+    st.markdown(
+        f'<div style="display: flex; justify-content: center;"><img style="width:700px; height:auto;" src="data:image/gif;base64,{data_url}" alt="cat gif"></div>',
+        unsafe_allow_html=True,
+    )
+
+    st.write("Here's an example of our bid-ask spread animation for the Amazon stock.")
+
+    st.write("In this section we focus on forecasting mid-quote prices and time arrival of orders.")
+
+
+
+
+
+
 if choose == "Contact":
     st.title("FinCast's Contact Form")
     contact_form()

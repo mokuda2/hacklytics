@@ -17,18 +17,9 @@ To activate it, simply run
 source venv/bin/activate
 ```
 
-To run the application, you will need: 
+To run the application, you will need to run
 
-* `streamlit` that can be installed using `pip install streamlit`
-* `pandas_datareader` that can be installed using `pip install pandas_datareader`
-
-* `tensorflow` that can be installed using `pip install tensorflow`
-* `statsmodels'` that can be installed using `pip install statsmodels`
-* `sklearn` that can be installed using `pip install scikit-learn`
-* `matplotlib` that can be installed using `pip install matplotlib`
-* `yfinance` that can be installed using `pip install yfinance`
-* `streamlit-option-menu` that can be isntalled using `pip install streamlit-option-menu` 
-* `xgboost` that can be installed using `pip install xgboost`
+`pip install -r requirments.txt`
 
 When you have installed all the required libraries, simply run 
 

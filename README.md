@@ -28,6 +28,7 @@ To run the application, you will need:
 * `matplotlib` that can be installed using `pip install matplotlib`
 * `yfinance` that can be installed using `pip install yfinance`
 * `streamlit-option-menu` that can be isntalled using `pip install streamlit-option-menu` 
+* `xgboost` that can be installed using `pip install xgboost`
 
 When you have installed all the required libraries, simply run 
 

@@ -344,7 +344,7 @@ if choose == "XGBoost Forecast":
 if choose == "Order Book Forecast":
     st.title("Welcome to FinCast's Order Book Forecast Section")
 
-    file_ = open("graphs\Video_230212082114.gif", "rb")
+    file_ = open("graphs/Video_230212082114.gif", "rb")
     contents = file_.read()
     data_url = base64.b64encode(contents).decode("utf-8")
     file_.close()

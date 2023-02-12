@@ -10,19 +10,7 @@ from streamlit_option_menu import option_menu
 from datetime import timedelta
 import streamlit.components.v1 as html
 import base64
-st.markdown(
-    """
-    <style>
-    .reportview-container {
-        background: url("url_goes_here")
-    }
-   .sidebar .sidebar-content {
-        background: url("url_goes_here")
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+
 with st.sidebar:
     choose = option_menu("FinCast", ["Home","ARIMA Forecast", "LSTM Forecast", "XGBoost Forecast", "Order Book Forecast",  "Contact"],
                          icons=['house', 'bar-chart-line-fill', 'bar-chart-line','bar-chart-steps', 'bar-chart-line-fill','person lines fill'],

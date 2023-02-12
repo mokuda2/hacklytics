@@ -10,8 +10,8 @@ from datetime import timedelta
 import streamlit.components.v1 as html
 
 with st.sidebar:
-    choose = option_menu("FinCast", ["Home","ARIMA Forecast", "LSTM Forecast", "Contact"],
-                         icons=['house', 'bar-chart-line-fill', 'bar-chart-line','person lines fill'],
+    choose = option_menu("FinCast", ["Home","ARIMA Forecast", "LSTM Forecast", "Gradient Boosting Forecast", "Contact"],
+                         icons=['house', 'bar-chart-line-fill', 'bar-chart-line', 'bar-chart-steps','person lines fill'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
         "container": {"padding": "5!important", "background-color": "#fafafa"},
@@ -279,7 +279,67 @@ if choose == "LSTM Forecast":
         st.write(f'Predicting next day ({next_day}) {ticker} price: {next_day_pred[0][0]} USD')
 
 
+if choose == "Gradient Boosting Forecast":
+    st.title("Welcome to FinCast's Gradient Boosting Model")
 
+    st.write('')
+
+    new_title = '<p style="font-family:cursive; color:blue; font-size: 30px;">First, lets select a dataset.</p>'
+    st.markdown(new_title, unsafe_allow_html=True)
+
+    ### Plotting the stock price
+
+    stock = st.selectbox(
+        'Select among popular stocks...',
+        ('Apple', 'Tesla', 'Amazon', 'Google', 'Microsoft', 'Bitcoin', 'Etherium', 'Dogecoin', 'Ripple'))
+
+    stock_tick = st.text_input('... or write the ticker')
+
+
+    startDate= st.date_input("Enter the start date")
+
+    endDate= st.date_input("Enter the end date (no future dates allowed here)")
+
+    startDate = datetime.combine(startDate, datetime.min.time())
+    endDate = datetime.combine(endDate, datetime.min.time())
+
+    if endDate> datetime.now():
+        new_title = '<p style="font-family:cursive; color:red; font-size: 15px;">Please enter a valid end date.</p>'
+        st.markdown(new_title, unsafe_allow_html=True)
+
+
+    interval = st.selectbox(
+        'Frequency of trades (for a frequency lower than 1h, restricted to data from the last 30 days and max. a week period). \n Please make sure you have at least 30 data points in total (otherwise, it is likely an error occurs).',
+        ('1d', '1w', '1mo', '1m', '30m', '1h'))
+
+
+    between_tick = st.slider('Time period between two date ticks', min_value=1, max_value=90, value=10, step=1)
+
+    tickers = {'Apple': 'AAPL', 'Tesla': 'TSLA', 'Amazon': 'AMZN', 'Google': 'GOOGL', 'Microsoft': 'MSFT', 'Bitcoin': 'BTC-USD', 'Etherium': 'ETH-USD', 'Dogecoin': 'DOGE-USD', 'Ripple':'XRP'}
+
+    if len(stock_tick) !=0:
+        ticker = stock_tick.upper()
+    else:
+        ticker = tickers[stock]
+
+    df = get_data(ticker, startDate, endDate, interval)
+
+    st.write('Make sure you click on the button below to make predictions later on!')
+    if st.button("See the stock price!"):
+        plot_stock(df, ticker, between_tick=between_tick)
+        image = Image.open('graphs/stock.png')
+        st.image(image)
+
+    #add blank space
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+
+
+    ### Fitting an LSTM model
 if choose == "Contact":
     st.title("FinCast's Contact Form")
     contact_form()

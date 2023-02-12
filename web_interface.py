@@ -2,6 +2,7 @@ import streamlit as st
 from arima_file import *
 from lstm_file import *
 from contact_us import *
+from gboost_file import *
 from PIL import Image
 from datetime import datetime
 from home import *
@@ -281,7 +282,7 @@ if choose == "LSTM Forecast":
 
 
 if choose == "XGBoost Forecast":
-    st.title("Welcome to FinCast's Gradient Boosting Model")
+    st.title("Welcome to FinCast's Extreme Gradient Boosting Model")
     st.write('')
 
     new_title = '<p style="font-family:cursive; color:blue; font-size: 30px;">First, lets select a dataset.</p>'
@@ -340,6 +341,24 @@ if choose == "XGBoost Forecast":
 
 
     ### Fitting an XGBoost model
+    new_title = '<p style="font-family: cursive; color:blue; font-size: 30px;">Predicting past data with XGBoost model</p>'
+    st.markdown(new_title, unsafe_allow_html=True)
+
+    st.write('')
+
+    new_title = '<p style="font-family: cursive; color:cornflowerblue; font-size: 22px;"> Extreme Gradient Boostinng approach</p>'
+    st.markdown(new_title, unsafe_allow_html=True)
+    st.write('XGBoost stands for Extreme Gradient Boosting. XGBoost is an algorithm that has been recently applied to machine learning and it is often used for both regressions and clssification problems.')
+    st.write('In this case we look for the best LSTM fit by splitting the data you selected above into a training (70%) and a test set (30%).')
+
+    if st.button("Fit an XGBoost!"):
+        st.write('Fitting an XGBoost model... (max 20 seconds)')
+        model = model_XGBOOST(ticker)
+        st.write("Cheers, XGboost fitted!")
+        predicted_prices, actual_prices = fit_XGBOOST(df, model)
+        rolling_forecast_XGBOOST(ticker, df, predicted_prices, actual_prices, between_tick=between_tick)
+        image = Image.open('graphs/XGBOOST.png')
+        st.image(image)
 
 if choose == "Order Book Forecast":
     st.title("Welcome to FinCast's Order Book Forecast Section")

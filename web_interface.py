@@ -373,7 +373,7 @@ if choose == "Order Book Forecast":
         unsafe_allow_html=True,
     )
 
-    st.write("Here's an example of our bid-ask spread animation for the Amazon stock.")
+    st.write("Here's an example of our bid-ask spread animation for the Amazon stock.")     
 
     st.write("In this section we focus on forecasting mid-quote prices and time arrival of orders.")
 
